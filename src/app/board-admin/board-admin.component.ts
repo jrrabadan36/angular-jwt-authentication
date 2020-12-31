@@ -9,12 +9,18 @@ import { UserService } from '../_services/user.service';
 export class BoardAdminComponent implements OnInit {
 
   content: string;
+  form: any = {};
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getAdminBoard().subscribe(
+    
+  }
+
+  onSubmit() {
+    this.userService.getAdminBoard(this.form).subscribe(
       data => {
+        console.log(data);
         this.content = data;
       },
       err => {

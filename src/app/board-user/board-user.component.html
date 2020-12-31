@@ -1,5 +1,10 @@
 <div class="container">
   <header class="jumbotron">
-    <p>{{ content }}</p>
+    <h1>listado de libros</h1>
+    <ul *ngFor="let libro of libros">
+      <li>Id: {{ libro.id }}</li>
+      <li>Nombre: {{ libro.name }}</li>
+      <li>Autor: {{ libro.author }}</li>
+    </ul>
   </header>
 </div>

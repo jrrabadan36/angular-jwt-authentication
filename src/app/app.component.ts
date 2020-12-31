@@ -22,10 +22,18 @@ export class AppComponent implements OnInit {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
 
-      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+      // console.log(this.roles[0].name);
 
-      this.username = user.username;
+      this.roles.forEach(element => {
+        if (element.name == "admin") {
+          this.showAdminBoard = true;
+        }
+      });
+      
+      //this.showAdminBoard = this.roles.includes('admin');
+      //this.showModeratorBoard = this.roles.includes('moderator');
+
+      this.username = user.name;
     }
   }
 

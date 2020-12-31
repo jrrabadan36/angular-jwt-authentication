@@ -8,17 +8,18 @@ import { UserService } from '../_services/user.service';
 })
 export class BoardUserComponent implements OnInit {
 
-  content: string;
+  libros: [];
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.getUserBoard().subscribe(
       data => {
-        this.content = data;
+        console.log(data);
+        this.libros = data;
       },
       err => {
-        this.content = JSON.parse(err.error).message;
+        this.libros = JSON.parse(err.error).message;
       }
     );
   }
